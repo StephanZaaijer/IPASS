@@ -11,7 +11,8 @@ The IPASS::RF24L01 library is an object-oriented library. To use in combination 
 - 1.0 (last modified 21-6-2021)
 
 ## Documentation
- For the documenation run `doxygen doxyfiles/Doxyfile` from the rootfolder of the repository
+ - For the documenation run `doxygen doxyfiles/Doxyfile` from the rootfolder of the repository
+ - The documentation is also available on [github pages](https://stephanzaaijer.github.io/IPASS/index.html)
 
 ## Copyright
 - Boost Software License V1.0 (see LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
