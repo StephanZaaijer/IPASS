@@ -1,5 +1,4 @@
 .idea
-test
 CMakeLists.txt
 cmake-build-debug/
 Logic
