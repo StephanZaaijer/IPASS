@@ -1,32 +1,27 @@
-# Prerequisites
-*.d
+.idea
+test
+CMakeLists.txt
+cmake-build-debug/
+Logic
+Gen_doxygen.bat
+tags
+*/_cc_flags
+*/_cpp_flags
+*/_linker_flags
+*/_run.bat
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+*/*.o
+*/*.c
+*/*.bin
+*/*.elf
+*/*.ld
+*/*.map
+*/test
 
-# Precompiled Headers
-*.gch
-*.pch
+*/*/*.o
+*/*/*.c
+*/*/*.bin
+*/*/*.elf
+*/*/*.ld
+*/*/*.map
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
