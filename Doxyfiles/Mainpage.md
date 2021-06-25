@@ -18,15 +18,15 @@ All three are a C++ OO interface:
 
 * The IPASS::APA102 class is a limited interface for the APA102-ledstrip
 
-<img src="../Documents/Images/APA102.jpg" alt="APA102" width="300px"/>
+<img src="APA102.jpg" alt="APA102" width="300px"/>
 
 * The IPASS::HC_SR04 class is a limited interface for the HC_595 ultrasonic distance sensor
 
-<img src="../Documents/Images/HC_SR04.jpg" alt="HC-SR04" width="300px"/>
+<img src="HC_SR04.jpg" alt="HC-SR04" width="300px"/>
 
 * The IPASS::RF24L01 class is an interface for the RF24L01
 
-<img src="../Documents/Images/RF24L01.jpg" alt="RF24L01(vma322)" width="300px"/>
+<img src="RF24L01.jpg" alt="RF24L01(vma322)" width="300px"/>
 
 ---
 
