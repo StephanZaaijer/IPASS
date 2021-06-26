@@ -8,7 +8,7 @@ The IPASS::RF24L01 library is an object-oriented library. To use in combination 
 - Stephan Zaaijer
 
 ## Version
-- 1.0 (last modified 25-6-2021)
+- 1.0 (last modified 26-6-2021)
 
 ## Documentation
  - For the documenation run `doxygen doxyfiles/Doxyfile` from the rootfolder of the repository
