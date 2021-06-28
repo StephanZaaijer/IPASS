@@ -12,7 +12,7 @@ The IPASS::RF24L01 library is an object-oriented library. To use in combination 
 
 ## Version
 
-- 1.0 (last modified 26-6-2021)
+- 1.0 (last modified 28-6-2021)
 
 ## Documentation
 
