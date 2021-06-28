@@ -3,6 +3,7 @@
 /**
  *  @file      RF24L01.hpp
  *  @brief     IPASS-project: Interface for the RF24L01.
+ *//
 //======================================================================================================================
 #ifndef IPASS_RF24L01_H
 #define IPASS_RF24L01_H
