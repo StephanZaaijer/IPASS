@@ -8,7 +8,7 @@
 
 ***Copyright:***
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boost Software License V1.0 (see LICENSE_1_0.txt or [see the license on the website](http://www.boost.org/LICENSE_1_0.txt))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boost Software License V1.0 (see [LICENSE.txt](../LICENSE.txt) or [see the license on the website](http://www.boost.org/LICENSE_1_0.txt))
 
 ---
 
