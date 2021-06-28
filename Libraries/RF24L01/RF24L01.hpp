@@ -3,11 +3,6 @@
 /**
  *  @file      RF24L01.hpp
  *  @brief     IPASS-project: Interface for the RF24L01.
- *  @author    Stephan Zaaijer
- *  @version   1.0
- *  @date      2021
- *  @copyright Boost Software License V1.0 (see LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
- */
 //======================================================================================================================
 #ifndef IPASS_RF24L01_H
 #define IPASS_RF24L01_H
