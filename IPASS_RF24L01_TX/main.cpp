@@ -5,7 +5,7 @@ int main() {
     //Kill the watchdog
     WDT->WDT_MR = WDT_MR_WDDIS;
 
-    //Pins for the RF24L01
+    //Pins for the RF24L01d
     auto IRQ = hwlib::target::pin_in(hwlib::target::pins::d0);
     auto clk = hwlib::target::pin_out(hwlib::target::pins::d3);
     auto mosi = hwlib::target::pin_out(hwlib::target::pins::d2);

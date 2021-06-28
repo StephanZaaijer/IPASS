@@ -1,8 +1,6 @@
 #include "../Libraries/RF24L01/RF24L01.hpp"
 #include "../Libraries/APA102/APA102.hpp"
 
-/// \image html example_HC_SR04_TX_schema.png
-
 // This file is an example to which is used to Transmit and recieve RGB and brightness data from 4 Potentiometers
 
 // The example in this file concists of 2 parts:
@@ -12,7 +10,7 @@
 //     Retrieves the data and sends it to the APA102
 
 
-//! [Example_APA102_RX]
+//! [Example_RF24L01_APA102_RX]
 
 
 int main() {
@@ -85,9 +83,9 @@ int main() {
     }
 }
 
-//! [Example_APA102_RX]
+//! [Example_RF24L01_APA102_RX]
 
-//! [Example_APA102_TX]
+//! [Example_RF24L01_APA102_TX]
 
 
 int main() {
@@ -156,4 +154,4 @@ int main() {
     }
 }
 
-//! [Example_APA102_TX]
+//! [Example_RF24L01_APA102_TX]

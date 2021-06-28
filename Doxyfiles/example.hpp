@@ -3,12 +3,13 @@
 /// \page examples Examples
 /// This page contains multiple examples and their explanation, circuit schematic
 /// Those example are:
-/// - \ref Example_HC_SR04
+/// - \ref Example_RF24L01_SR04
 ///
-/// - \ref Example_APA102
+/// - \ref Example_RF24L01_APA102
+///
 ///
 /// <BR>
-/// \section Example_HC_SR04 Example 1: HC-SR04
+/// \section Example_RF24L01_HC_SR04 Example 1: RF24L01 in combination with HC-SR04
 ///
 /// =========================================================================
 /// This file is an example to which is used to Transmit and recieve the distance measured by a HC-SR04
@@ -31,15 +32,15 @@
 ///
 /// \subsection Example_HC_SR04_Transmit_code Transmit code example
 /// 
-/// \snippet "Example_HCSR04.cpp" Example_HC-SR04_TX
+/// \snippet "Example_RF24L01_HCSR04.cpp" Example_HC-SR04_TX
 ///
 /// \subsection Example_HC_SR04_Recieve_code Recieve code example
 /// 
-/// \snippet "Example_HCSR04.cpp" Example_HC-SR04_RX
+/// \snippet "Example_RF24L01_HCSR04.cpp" Example_HC-SR04_RX
 ///
 /// =========================================================================
 ///
-/// \section Example_APA102 Example 2: APA102
+/// \section Example_RF24L01_APA102 Example 2: RF24L01 in combination with APA102
 ///
 /// =========================================================================
 /// This file is an example to which is used to Transmit and recieve RGB and brightness data from 4 Potentiometers
@@ -68,11 +69,11 @@
 ///
 /// \subsection Example_APA102_Transmit_code Transmit code example
 /// 
-/// \snippet "Example_APA102.cpp" Example_APA102_TX
+/// \snippet "Example_RF24L01_APA102.cpp" Example_RF24L01_APA102_TX
 ///
 /// \subsection Example_APA102_Recieve_code Recieve code example
 /// 
-/// \snippet "Example_APA102.cpp" Example_APA102_RX
+/// \snippet "Example_RF24L01_APA102.cpp" Example_RF24L01_APA102_RX
 ///
 /// =========================================================================
 ///

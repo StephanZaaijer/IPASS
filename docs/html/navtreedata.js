@@ -26,13 +26,13 @@ var NAVTREE =
 [
   [ "IPASS Stephan Zaaijer", "index.html", [
     [ "Examples", "examples.html", [
-      [ "Example 1: HC-SR04", "examples.html#Example_HC_SR04", [
+      [ "Example 1: RF24L01 in combination with HC-SR04", "examples.html#Example_RF24L01_HC_SR04", [
         [ "Transmit circuit schematic", "examples.html#Example_HC_SR04_Transmit_circuit", null ],
         [ "Recieve circuit schematic", "examples.html#Example_HC_SR04_Recieve_circuit", null ],
         [ "Transmit code example", "examples.html#Example_HC_SR04_Transmit_code", null ],
         [ "Recieve code example", "examples.html#Example_HC_SR04_Recieve_code", null ]
       ] ],
-      [ "Example 2: APA102", "examples.html#Example_APA102", [
+      [ "Example 2: RF24L01 in combination with APA102", "examples.html#Example_RF24L01_APA102", [
         [ "Transmit circuit schematic", "examples.html#Example_APA102_Transmit_circuit", null ],
         [ "Recieve circuit schematic", "examples.html#Example_APA102_Recieve_circuit", null ],
         [ "Transmit code example", "examples.html#Example_APA102_Transmit_code", null ],

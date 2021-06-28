@@ -1,5 +1,5 @@
-#include "../../Libraries/RF24L01/RF24L01.hpp"
-#include "../../Libraries/HC_SR04/HC_SR04.hpp"
+#include "../Libraries/RF24L01/RF24L01.hpp"
+#include "../Libraries/HC_SR04/HC_SR04.hpp"
 
 // This file is an example to which is used to Transmit and recieve distance data from the HC-SR04
 
