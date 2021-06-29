@@ -10,5 +10,5 @@ var searchData=
   ['reset_5faw_180',['reset_aw',['../class_i_p_a_s_s_1_1_r_f24_l01.html#aa92e8df863a25762d0a2bc872938572f',1,'IPASS::RF24L01']]],
   ['reset_5frf_5fpwr_181',['reset_rf_pwr',['../class_i_p_a_s_s_1_1_r_f24_l01.html#a80cd953a156ff5c981f30f06d2bd2213',1,'IPASS::RF24L01']]],
   ['reset_5frx_5fpw_5fp_182',['reset_RX_PW_P',['../class_i_p_a_s_s_1_1_r_f24_l01.html#ad2e8cfa574e7d746ba33b1003cb7a413',1,'IPASS::RF24L01']]],
-  ['rf24l01_183',['RF24L01',['../class_i_p_a_s_s_1_1_r_f24_l01.html#a94a4dd81f43385ad74bfb40bb5f24401',1,'IPASS::RF24L01']]]
+  ['rf24l01_183',['RF24L01',['../class_i_p_a_s_s_1_1_r_f24_l01.html#a62a86f271110e11ccf24c45e9f660cd8',1,'IPASS::RF24L01']]]
 ];

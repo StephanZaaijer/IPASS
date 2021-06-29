@@ -3,7 +3,7 @@
 /**
  *  @file      RF24L01.hpp
  *  @brief     IPASS-project: Interface for the RF24L01.
- *//
+ */
 //======================================================================================================================
 #ifndef IPASS_RF24L01_H
 #define IPASS_RF24L01_H
@@ -18,7 +18,7 @@
 
 /**
  * @brief
- * IPASS namespace to prefend name clashes
+ * IPASS namespace to prevent name clashes
  */
 
 namespace IPASS {
@@ -27,7 +27,7 @@ namespace IPASS {
      * @brief
      * Class for the RF24L01
      * @details
-     * Class that contains all the functions, variabeles and subclasses for the RF24L01
+     * Class that contains all the functions, variables and subclasses for the RF24L01
     */
     class RF24L01 {
     private:
@@ -54,7 +54,7 @@ namespace IPASS {
         hwlib::pin_in &IRQ;
 
         /**
-         * boolean that indicates if the SPI-command Activate is active
+         * boolean that indicates if the SPI-command COMMAND::Activate is active which means that the REGISTER::ACK_PLD, REGISTER::DYNPD, REGISTER::FEATURE are writable
          */
         bool Active = false;
 
@@ -62,19 +62,19 @@ namespace IPASS {
          * @brief
          * Private read function
          * @details
-         * Read function that writes the command and than reads the same amount of byts as the length of value
-         * @tparam amount variabele that controls the size of std::array Data
+         * Read function that writes the command and than reads the same amount of bytes as the length of value
+         * @tparam amount variable that controls the size of std::array Data
          * @param address uint8_t that contains the SPI-command
-         * @param data_out std::array uint8_t of variabel size thats read after the SPI-command
+         * @param data_out std::array uint8_t of variable size that's read after the SPI-command
          */
         template<size_t amount>
         [[maybe_unused]] void read(const uint8_t &address, std::array<uint8_t, amount> &data_out) {
             hwlib::spi_bus::spi_transaction spi_trans = ((hwlib::spi_bus *) (&bus))->transaction(minion_select);
             spi_trans.write(address);
-            std::array<uint8_t, amount> data_recieved = {};
-            spi_trans.read(data_recieved);
+            std::array<uint8_t, amount> data_received = {};
+            spi_trans.read(data_received);
             for (unsigned int i = 0; i < amount; i++) {
-                data_out[i] = data_recieved[amount - i - 1];
+                data_out[i] = data_received[amount - i - 1];
             }
             spi_trans.~spi_transaction();
         }
@@ -84,7 +84,7 @@ namespace IPASS {
          * Private read function
          * @details
          * Write function that writes the command and the value
-         * @param address uint8_t that contains the register-adress
+         * @param address uint8_t that contains the register address
          * @return returns the uint8_t that read from the register
          */
         [[maybe_unused]] uint8_t read(const uint8_t &address);
@@ -94,8 +94,8 @@ namespace IPASS {
          * Private read function
          * @details
          * Write function that writes the command and the value
-         * @param address uint8_t that contains the register-adress
-         * @param data_out uint8_t thats read after the SPI-command
+         * @param address uint8_t that contains the register address
+         * @param data_out uint8_t that's read after the SPI-command
          */
         [[maybe_unused]] void read(const uint8_t &address, uint8_t &data_out);
 
@@ -104,18 +104,24 @@ namespace IPASS {
          * Startup function
          * @details
          * startup function that sets the value of RX_ADDR_P0, TX_ADDR, channel and CRC
+         * @param RX_ADDR_P0 variable that contains the value for the REGISTER::RX_ADDR_P0 register
+         * @param TX_ADDR variable that contains the value for the REGISTER::TX_ADDR register
+         * @param channel variable that contains the rf-channel the RF24L01 is going to work on
+         * @param CRC boolean that contains if CRC is on or off
+         * @param CRC_width boolean that contains if the CRC is 1 or 2 bytes
+         * @param data_rate boolean that contains if the data rate is 1 or 2 Mbps
          */
         void start_up(std::array<uint8_t, 5> RX_ADDR_P0, std::array<uint8_t, 5> TX_ADDR, uint8_t channel, bool CRC,
-                      bool CRC_width, bool datarate);
+                      bool CRC_width, bool data_rate);
 
         /**
          * @brief
          * Private write function
          * @details
-         * Write function that writes the command and the values of a variabele size
-         * @tparam amount variabele that controls the size of std::array Data
+         * Write function that writes the command and the values of a variable size
+         * @tparam amount variable that controls the size of std::array Data
          * @param command uint8_t that contains the SPI-command
-         * @param value std::array of uint8_t of variabel size
+         * @param value std::array of uint8_t of variable size
          */
         template<size_t amount>
         [[maybe_unused]] void write(const uint8_t &command, const std::array<uint8_t, amount> &value) {
@@ -132,7 +138,7 @@ namespace IPASS {
          * @details
          * Write function that writes the command and the value
          * @param command uint8_t that contains the SPI-command
-         * @param value uint8_t thats written after the SPI-command
+         * @param value uint8_t that's written after the SPI-command
          */
         [[maybe_unused]] void write(const uint8_t &command, const uint8_t &value);
 
@@ -158,12 +164,12 @@ namespace IPASS {
              * @details
              * used to write data to the registers of the RF24L01
              * @note
-             * can only be used in standy or power down mode
+             * can only be used in standby or power down mode
              */
             [[maybe_unused]] static const uint8_t W_REGISTER;
             /**
              * @brief
-             * const static uint8_t that contains the value of the read_recieve_payload command of the RF24L01
+             * const static uint8_t that contains the value of the read_receive_payload command of the RF24L01
              * @details
              * Read 1-32 bytes from the RX-payload. It starts at byte 0 and the payload is deleted from FIFO after it was read
              */
@@ -184,7 +190,7 @@ namespace IPASS {
             [[maybe_unused]] static const uint8_t FLUSH_TX;
             /**
              * @brief
-             * const static uint8_t that contains the value of the flush_recieve command of the RF24L01
+             * const static uint8_t that contains the value of the flush_receive command of the RF24L01
              * @details
              * Flush the RX-fifo
              */
@@ -216,7 +222,7 @@ namespace IPASS {
              * @brief
              * const static uint8_t that contains the value of the W_ACK_PAYLOAD command of the RF24L01
              * @details
-             * Write 1-32 bytes to TX_FIFO with acknowledge on a specific pype
+             * Write 1-32 bytes to TX_FIFO with acknowledge on a specific pipe
              */
             [[maybe_unused]] static const uint8_t W_ACK_PAYLOAD;
             /**
@@ -245,132 +251,132 @@ namespace IPASS {
         public:
             /**
             * @brief
-            * const static uint8_t that contains the CONFIG-registeraddres of the RF24L01
+            * const static uint8_t that contains the CONFIG-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t CONFIG;
             /**
             * @brief
-            * const static uint8_t that contains the EN_AA-registeraddres of the RF24L01
+            * const static uint8_t that contains the EN_AA-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t EN_AA;
             /**
             * @brief
-            * const static uint8_t that contains the EN_RXADDR-registeraddres of the RF24L01
+            * const static uint8_t that contains the EN_RXADDR-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t EN_RXADDR;
             /**
             * @brief
-            * const static uint8_t that contains the SETUP_AW-registeraddres of the RF24L01
+            * const static uint8_t that contains the SETUP_AW-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t SETUP_AW;
             /**
             * @brief
-            * const static uint8_t that contains the SETUP_RETR-registeraddres of the RF24L01
+            * const static uint8_t that contains the SETUP_RETR-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t SETUP_RETR;
             /**
             * @brief
-            * const static uint8_t that contains the RF_CH-registeraddres of the RF24L01
+            * const static uint8_t that contains the RF_CH-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RF_CH;
             /**
             * @brief
-            * const static uint8_t that contains the RF_SETUP-registeraddres of the RF24L01
+            * const static uint8_t that contains the RF_SETUP-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RF_SETUP;
             /**
             * @brief
-            * const static uint8_t that contains the STATUS-registeraddres of the RF24L01
+            * const static uint8_t that contains the STATUS-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t STATUS;
             /**
             * @brief
-            * const static uint8_t that contains the OBSERVE_TX-registeraddres of the RF24L01
+            * const static uint8_t that contains the OBSERVE_TX-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t OBSERVE_TX;
             /**
             * @brief
-            * const static uint8_t that contains the CD-registeraddres of the RF24L01
+            * const static uint8_t that contains the CD-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t CD;
             /**
             * @brief
-            * const static uint8_t that contains the RX_ADDR_P0-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_ADDR_P0-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_ADDR_P0;
             /**
             * @brief
-            * const static uint8_t that contains the RX_ADDR_P1-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_ADDR_P1-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_ADDR_P1;
             /**
             * @brief
-            * const static uint8_t that contains the RX_ADDR_P2-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_ADDR_P2-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_ADDR_P2;
             /**
             * @brief
-            * const static uint8_t that contains the RX_ADDR_P3-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_ADDR_P3-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_ADDR_P3;
             /**
             * @brief
-            * const static uint8_t that contains the RX_ADDR_P4-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_ADDR_P4-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_ADDR_P4;
             /**
             * @brief
-            * const static uint8_t that contains the RX_ADDR_P5-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_ADDR_P5-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_ADDR_P5;
             /**
             * @brief
-            * const static uint8_t that contains the TX_ADDR-registeraddres of the RF24L01
+            * const static uint8_t that contains the TX_ADDR-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t TX_ADDR;
             /**
             * @brief
-            * const static uint8_t that contains the RX_PW_P0-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_PW_P0-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_PW_P0;
             /**
             * @brief
-            * const static uint8_t that contains the RX_PW_P1-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_PW_P1-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_PW_P1;
             /**
             * @brief
-            * const static uint8_t that contains the RX_PW_P2-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_PW_P2-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_PW_P2;
             /**
             * @brief
-            * const static uint8_t that contains the RX_PW_P3-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_PW_P3-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_PW_P3;
             /**
             * @brief
-            * const static uint8_t that contains the RX_PW_P4-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_PW_P4-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_PW_P4;
             /**
             * @brief
-            * const static uint8_t that contains the RX_PW_P5-registeraddres of the RF24L01
+            * const static uint8_t that contains the RX_PW_P5-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t RX_PW_P5;
             /**
             * @brief
-            * const static uint8_t that contains the FIFO_STATUS-registeraddres of the RF24L01
+            * const static uint8_t that contains the FIFO_STATUS-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t FIFO_STATUS;
             /**
             * @brief
-            * const static uint8_t that contains the DYNPD-registeraddres of the RF24L01
+            * const static uint8_t that contains the DYNPD-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t DYNPD;
             /**
             * @brief
-            * const static uint8_t that contains the FEATURE-registeraddres of the RF24L01
+            * const static uint8_t that contains the FEATURE-register address of the RF24L01
             */
             [[maybe_unused]] static const uint8_t FEATURE;
 
@@ -395,7 +401,7 @@ namespace IPASS {
                 const uint8_t &REGISTER_ADDR;
                 ///const uint8_t that contains the mask to identify the bit of the setting
                 const uint8_t &Mask;
-                ///const boolean that contains the standardvalue to reset the function
+                ///const boolean that contains the standard value to reset the function
                 const bool &Reset_Value;
 
                 /**
@@ -468,7 +474,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the ENAA_P5-setting
              * @details
-             * The ENAA_P5 setting controls if auto acknowledgdement is enabled on pipe 5
+             * The ENAA_P5 setting controls if auto acknowledgement is enabled on pipe 5
              * - High is enabled
              * - Low is disabled
              */
@@ -477,7 +483,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the ENAA_P4-setting
              * @details
-             * The ENAA_P4 setting controls if auto acknowledgdement is enabled on pipe 4
+             * The ENAA_P4 setting controls if auto acknowledgement is enabled on pipe 4
              * - High is enabled
              * - Low is disabled
              */
@@ -486,7 +492,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the ENAA_P3-setting
              * @details
-             * The ENAA_P3 setting controls if auto acknowledgdement is enabled on pipe 3
+             * The ENAA_P3 setting controls if auto acknowledgement is enabled on pipe 3
              * - High is enabled
              * - Low is disabled
              */
@@ -495,7 +501,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the ENAA_P2-setting
              * @details
-             * The ENAA_P2 setting controls if auto acknowledgdement is enabled on pipe 2
+             * The ENAA_P2 setting controls if auto acknowledgement is enabled on pipe 2
              * - High is enabled
              * - Low is disabled
              */
@@ -504,7 +510,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the ENAA_P1-setting
              * @details
-             * The ENAA_P1 setting controls if auto acknowledgdement is enabled on pipe 1
+             * The ENAA_P1 setting controls if auto acknowledgement is enabled on pipe 1
              * - High is enabled
              * - Low is disabled
              */
@@ -513,7 +519,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the ENAA_P0-setting
              * @details
-             * The ENAA_P0 setting controls if auto acknowledgdement is enabled on pipe 0
+             * The ENAA_P0 setting controls if auto acknowledgement is enabled on pipe 0
              * - High is enabled
              * - Low is disabled
              */
@@ -599,14 +605,14 @@ namespace IPASS {
              * static Settings that contains the Register_name and the bitmask of the TX_DS-setting
              * @details
              * The TX_DS setting is an Data Send TX FIFO interrupt. Which is reset when new data is send.
-             * IF AUTO_ACK is activated this bit is only high when the acknowledgement is recieved
+             * IF AUTO_ACK is activated this bit is only high when the acknowledgement is received
              */
             [[maybe_unused]] static Setting TX_DS;
             /**
              * @brief
              * static Settings that contains the Register_name and the bitmask of the MAX_RT-setting
              * @details
-             * The MAX_RT setting is an interrup which is enabled when the maximum number of retries is reached
+             * The MAX_RT setting is an interrupt which is enabled when the maximum number of retries is reached
              */
             [[maybe_unused]] static Setting MAX_RT;
 
@@ -673,7 +679,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the DPL_P5-setting
              * @details
-             * The DPL_P5 function enables dynamic pauload length on data pipe 5
+             * The DPL_P5 function enables dynamic payload length on data pipe 5
              * @note
              * Requires:
              * EN_DPL and ENAA_P5 to be HIGH
@@ -684,7 +690,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the DPL_P4-setting
              * @details
-             * The DPL_P4 function enables dynamic pauload length on data pipe 4
+             * The DPL_P4 function enables dynamic payload length on data pipe 4
              * @note
              * Requires:
              * EN_DPL and ENAA_P4 to be HIGH
@@ -695,7 +701,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the DPL_P3-setting
              * @details
-             * The DPL_P3 function enables dynamic pauload length on data pipe 3
+             * The DPL_P3 function enables dynamic payload length on data pipe 3
              * @note
              * Requires:
              * EN_DPL and ENAA_P3 to be HIGH
@@ -706,7 +712,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the DPL_P2-setting
              * @details
-             * The DPL_P2 function enables dynamic pauload length on data pipe 2
+             * The DPL_P2 function enables dynamic payload length on data pipe 2
              * @note
              * Requires:
              * EN_DPL and ENAA_P2 to be HIGH
@@ -717,7 +723,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the DPL_P1-setting
              * @details
-             * The DPL_P1 function enables dynamic pauload length on data pipe 1
+             * The DPL_P1 function enables dynamic payload length on data pipe 1
              * @note
              * Requires:
              * EN_DPL and ENAA_P1 to be HIGH
@@ -728,7 +734,7 @@ namespace IPASS {
              * @brief
              * static Settings that contains the Register_name and the bitmask of the DPL_P0-setting
              * @details
-             * The DPL_P0 function enables dynamic pauload length on data pipe 0
+             * The DPL_P0 function enables dynamic payload length on data pipe 0
              * @note
              * Requires:
              * EN_DPL and ENAA_P0 to be HIGH
@@ -776,7 +782,7 @@ namespace IPASS {
          * @param RX_ADDR_P0 std::array<uint8_t, 5> that contains the RX-address of pipe 0
          * @param TX_ADDR std::array<uint8_t, 5> that contains the TX-address of the RF24L01
          * @param channel uint8_t which sets the rf-channel of the RF24L01
-         * @param datarate boolean that controls if setup with datarate of 1 or 2 Mbps
+         * @param data_rate boolean that controls if setup with data rate of 1 or 2 Mbps
          * @param CRC boolean that controls of CRC is enabled or disabled
          * @param CRC_width that controls of CRC is 1 or 2 bytes
          */
@@ -787,7 +793,7 @@ namespace IPASS {
                 std::array<uint8_t, 5> RX_ADDR_P0,
                 std::array<uint8_t, 5> TX_ADDR,
                 uint8_t channel = 0x02,
-                bool datarate = true,
+                bool data_rate = true,
                 bool CRC = true,
                 bool CRC_width = true);
 
@@ -823,7 +829,7 @@ namespace IPASS {
          * - '0x0D': Up to 13 Re-Transmits on fail of AA
          * - '0x0E': Up to 14 Re-Transmits on fail of AA
          * - '0x0F': Up to 15 Re-Transmits on fail of AA
-         * @param arc uint8_t thats written as the new value for arc
+         * @param arc uint8_t that's written as the new value for arc
          */
         [[maybe_unused]] void change_arc(uint8_t arc);
 
@@ -850,7 +856,7 @@ namespace IPASS {
          * - '0x0E': Wait 3750 μS
          * - '0x0F': Wait 4000 μS
          * (Delay defined from end of a transmission to start of next transmission)
-         * @param ard uint8_t thats written as the new value for ard
+         * @param ard uint8_t that's written as the new value for ard
          */
         [[maybe_unused]] void change_ard(uint8_t ard);
 
@@ -864,7 +870,7 @@ namespace IPASS {
          * - '10': 4 bytes
          * - '11': 5 bytes
          * the least significant byte is used for the address if address is less than 5 bytes
-         * @param aw uint8_t thats written as the new value for aw
+         * @param aw uint8_t that's written as the new value for aw
          */
         [[maybe_unused]] void change_aw(uint8_t aw);
 
@@ -878,7 +884,7 @@ namespace IPASS {
          * - '0x01': -12 dBm
          * - '0x02': -6  dBm
          * - '0x03':  0  dBm
-         * @param rf_pwr uint8_t thats written as the new value for rf_pwr
+         * @param rf_pwr uint8_t that's written as the new value for rf_pwr
          */
         [[maybe_unused]] void change_rf_pwr(uint8_t rf_pwr);
 
@@ -898,10 +904,10 @@ namespace IPASS {
 
         /**
          * @brief
-         * boolean to check if a packet is recieved
+         * boolean to check if a packet is received
          * @return boolean value that indicates if there is a packet by reading the RX_EMPTY bit in register FIFO_STATUS
          */
-        [[maybe_unused]] bool packet_recieved();
+        [[maybe_unused]] bool packet_received();
 
         /**
          * @brief
@@ -912,10 +918,10 @@ namespace IPASS {
 
         /**
          * @brief
-         * Function to read recieved packages
-         * @tparam amount variabele that controls the size of std::array Data
+         * Function to read received packages
+         * @tparam amount variable that controls the size of std::array Data
          * @param Data std::array uint8_t that read from the RX_PLD register
-         * @return returns an std::array of variabel size stored in parameter Data
+         * @return returns an std::array of variable size stored in parameter Data
          */
         template<size_t amount>
         [[maybe_unused]] void read_rx(std::array<uint8_t, amount> &Data) {
@@ -926,11 +932,11 @@ namespace IPASS {
          * @brief
          * Function to read multiple uint8_t value from an register
          * @details
-         * Function to read an variabele amount of value from an register
-         * @tparam amount variabele that controls the size of std::array Data
+         * Function to read an variable amount of value from an register
+         * @tparam amount variable that controls the size of std::array Data
          * @param address uint8_t that contains the location of the register
-         * @param data_out std::array of uint8_t that contains an variabel amount of values to read from the register
-         * @return the function returns a std::array of variabel size stored in parameter data_out
+         * @param data_out std::array of uint8_t that contains an variable amount of values to read from the register
+         * @return the function returns a std::array of variable size stored in parameter data_out
          */
         template<size_t amount>
         [[maybe_unused]] void register_read(const uint8_t &address, std::array<uint8_t, amount> &data_out) {
@@ -1015,7 +1021,7 @@ namespace IPASS {
 
         /**
          * @brief
-         * function that transmits the packages stored in the transmitbuffer
+         * function that transmits the packages stored in the transmit buffer
          */
         [[maybe_unused]] void send_packages();
 
@@ -1023,8 +1029,8 @@ namespace IPASS {
          * @brief
          * function to change the RF-channel of the RF24L01
          * @details
-         * Actuall RF-frequentie is 2400+value[MHz]
-         * @param channel the new channelvalue maximumvalue=128
+         * Actual RF-frequency is 2400+value[MHz]
+         * @param channel the new channel value the maximum value is 128
          */
         [[maybe_unused]] void set_channel(uint8_t channel);
 
@@ -1052,7 +1058,7 @@ namespace IPASS {
          * Function to read the current status if a setting
          * @details
          * Function to read to current status of a setting of the RF24L01
-         * @param registerFunction SETTING::Setting parameter that contains the register, mask and the standardvalue of the setting
+         * @param registerFunction SETTING::Setting parameter that contains the register, mask and the standard value of the setting
          */
         [[maybe_unused]] bool setting_read(SETTING::Setting registerFunction);
 
@@ -1061,19 +1067,19 @@ namespace IPASS {
          * Function to reset a setting
          * @details
          * Function to reset a setting of the RF24L01
-         * @param registerFunction SETTING::Setting parameter that contains the register, mask and the standardvalue of the setting
+         * @param registerFunction SETTING::Setting parameter that contains the register, mask and the standard value of the setting
          */
         [[maybe_unused]] void setting_reset(SETTING::Setting registerFunction);
 
         /**
          * @brief
-         * function to start the recieving mode on the RF24L01
+         * function to start the receiving mode on the RF24L01
          */
         [[maybe_unused]] void start_RX();
 
         /**
         * @brief
-        * function to stop the recieving mode on the RF24L01
+        * function to stop the receiving mode on the RF24L01
         */
         [[maybe_unused]] void stop_RX();
 
@@ -1101,8 +1107,8 @@ namespace IPASS {
          * @brief
          * Function to write data to TX_PLD
          * @details
-         * The function does also always check if IRQ is active high and if thats true if resets IRQ to disable the lock
-         * @tparam amount variabele that controls the size of std::array Data
+         * The function does also always check if IRQ is active high and if that's true if resets IRQ to disable the lock
+         * @tparam amount variable that controls the size of std::array Data
          * @param Data std::array uint8_t that written to the TX_PLD register
          * @param no_ack boolean that controls if the data is written with or without acknowledgement
          */

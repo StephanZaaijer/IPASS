@@ -10,26 +10,26 @@ namespace IPASS {
     [[maybe_unused]] void RF24L01::read(const uint8_t &address, uint8_t &data_out) {
         hwlib::spi_bus::spi_transaction spi_trans = ((hwlib::spi_bus *) (&bus))->transaction(minion_select);
         spi_trans.write(address);
-        std::array<uint8_t, 1> data_recieved = {};
-        spi_trans.read(data_recieved);
-        data_out = data_recieved[0];
+        std::array<uint8_t, 1> data_received = {};
+        spi_trans.read(data_received);
+        data_out = data_received[0];
         spi_trans.~spi_transaction();
     }
 
     [[maybe_unused]] uint8_t RF24L01::read(const uint8_t &address) {
         hwlib::spi_bus::spi_transaction spi_trans = ((hwlib::spi_bus *) (&bus))->transaction(minion_select);
         spi_trans.write(address);
-        std::array<uint8_t, 1> data_recieved = {};
-        spi_trans.read(data_recieved);
+        std::array<uint8_t, 1> data_received = {};
+        spi_trans.read(data_received);
         spi_trans.~spi_transaction();
-        return data_recieved[0];
+        return data_received[0];
     }
 
     RF24L01::RF24L01(hwlib::spi_bus_bit_banged_sclk_mosi_miso &bus, hwlib::pin_out &CE_Pin,
                      hwlib::pin_out &minion_select, hwlib::pin_in &IRQ, std::array<uint8_t, 5> RX_ADDR_P0, std::array<uint8_t, 5> TX_ADDR,
-                     uint8_t channel, bool datarate, bool CRC, bool CRC_width) :
+                     uint8_t channel, bool data_rate, bool CRC, bool CRC_width) :
             bus(bus), minion_select(minion_select), CE_pin(CE_Pin), IRQ(IRQ){
-        start_up(RX_ADDR_P0, TX_ADDR, channel, CRC, CRC_width, datarate);
+        start_up(RX_ADDR_P0, TX_ADDR, channel, CRC, CRC_width, data_rate);
         uint8_t Value_AW = register_read(REGISTER::SETUP_AW);
         if(Value_AW != 0x01 and Value_AW != 0x02 and Value_AW != 0x03){
             for(;;){
@@ -90,7 +90,7 @@ namespace IPASS {
         write_command(COMMAND::FLUSH_TX);
     }
 
-    [[maybe_unused]] bool RF24L01::packet_recieved() {
+    [[maybe_unused]] bool RF24L01::packet_received() {
         return !setting_read(SETTING::RX_EMPTY);
     }
 
