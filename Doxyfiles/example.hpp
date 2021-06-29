@@ -3,7 +3,7 @@
 /// \page examples Examples
 /// This page contains multiple examples and their explanation, circuit schematic
 /// Those example are:
-/// - \ref Example_RF24L01_SR04
+/// - \ref Example_RF24L01_HC_SR04
 ///
 /// - \ref Example_RF24L01_APA102
 ///
