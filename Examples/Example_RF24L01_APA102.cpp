@@ -54,7 +54,7 @@ int main() {
     for (;;) {
 
         //check if packet is recieved
-        if (chip.packet_recieved()) {
+        if (chip.packet_received()) {
             led.write(1);
             //read rx_data to data in;
             chip.read_rx(data_in);
