@@ -50,9 +50,9 @@
 ///   checks if one of the buttons is pressed
 ///   -# if the first button connected to D52 is pressed:
 ///      Measures the data from the potentiometers and sends it
-///    -# if the second button connected to D11 is pressed:
+///   -# if the second button connected to D11 is pressed:
 ///      Send {0,0,0,0,0} to turn of the leds
-///    -# if the third button connected to D13 is pressed:
+///   -# if the third button connected to D13 is pressed:
 ///     Send {0,0,0,0,255} to turn on the random_colors function off the APA102-library which sends pseudo-random values to the apa102
 ///
 /// - The second part is the main_rx()-function is an example which:
