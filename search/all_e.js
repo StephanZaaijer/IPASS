@@ -18,7 +18,7 @@ var searchData=
   ['reset_5frx_5fpw_5fp_92',['reset_RX_PW_P',['../class_i_p_a_s_s_1_1_r_f24_l01.html#ad2e8cfa574e7d746ba33b1003cb7a413',1,'IPASS::RF24L01']]],
   ['reset_5fvalue_93',['Reset_Value',['../struct_i_p_a_s_s_1_1_r_f24_l01_1_1_s_e_t_t_i_n_g_1_1_setting.html#a3b87e4bed127fa9f021ba5c39ccf8701',1,'IPASS::RF24L01::SETTING::Setting']]],
   ['reuse_5ftx_5fpl_94',['REUSE_TX_PL',['../class_i_p_a_s_s_1_1_r_f24_l01_1_1_c_o_m_m_a_n_d.html#a8e486128065bab6472b5c7544594bafe',1,'IPASS::RF24L01::COMMAND']]],
-  ['rf24l01_95',['RF24L01',['../class_i_p_a_s_s_1_1_r_f24_l01.html',1,'IPASS::RF24L01'],['../class_i_p_a_s_s_1_1_r_f24_l01.html#a94a4dd81f43385ad74bfb40bb5f24401',1,'IPASS::RF24L01::RF24L01()']]],
+  ['rf24l01_95',['RF24L01',['../class_i_p_a_s_s_1_1_r_f24_l01.html',1,'IPASS::RF24L01'],['../class_i_p_a_s_s_1_1_r_f24_l01.html#a62a86f271110e11ccf24c45e9f660cd8',1,'IPASS::RF24L01::RF24L01()']]],
   ['rf24l01_2ehpp_96',['RF24L01.hpp',['../_r_f24_l01_8hpp.html',1,'']]],
   ['rf_5fch_97',['RF_CH',['../class_i_p_a_s_s_1_1_r_f24_l01_1_1_r_e_g_i_s_t_e_r.html#ac182e6a75dac82fcd728c512541a59c7',1,'IPASS::RF24L01::REGISTER']]],
   ['rf_5fdr_98',['RF_DR',['../class_i_p_a_s_s_1_1_r_f24_l01_1_1_s_e_t_t_i_n_g.html#af0fe4430333fe4b84c00941b2a2f2606',1,'IPASS::RF24L01::SETTING']]],

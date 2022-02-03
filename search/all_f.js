@@ -12,7 +12,7 @@ var searchData=
   ['setup_5fretr_124',['SETUP_RETR',['../class_i_p_a_s_s_1_1_r_f24_l01_1_1_r_e_g_i_s_t_e_r.html#a71cbfda780699018343ff28ff62e5987',1,'IPASS::RF24L01::REGISTER']]],
   ['spi_5fbus_125',['SPI_bus',['../class_i_p_a_s_s_1_1_a_p_a102.html#a02b5ba966b2cd418f2058f2eb07e3db0',1,'IPASS::APA102']]],
   ['start_5frx_126',['start_RX',['../class_i_p_a_s_s_1_1_r_f24_l01.html#a09911df94422adc2a9b8299e73d2f4fc',1,'IPASS::RF24L01']]],
-  ['start_5fup_127',['start_up',['../class_i_p_a_s_s_1_1_r_f24_l01.html#ad0a2bee8d0d0ab1c752b3e3597f1a731',1,'IPASS::RF24L01']]],
+  ['start_5fup_127',['start_up',['../class_i_p_a_s_s_1_1_r_f24_l01.html#acc61190fbd9b61f25928262f6e98cf9b',1,'IPASS::RF24L01']]],
   ['status_128',['STATUS',['../class_i_p_a_s_s_1_1_r_f24_l01_1_1_r_e_g_i_s_t_e_r.html#a66ea21532f5619c1f404cc3a36f42670',1,'IPASS::RF24L01::REGISTER']]],
   ['stop_5frx_129',['stop_RX',['../class_i_p_a_s_s_1_1_r_f24_l01.html#a5d49c44c7939a7036d065dd7758aa568',1,'IPASS::RF24L01']]]
 ];

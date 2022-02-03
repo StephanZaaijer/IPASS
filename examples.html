@@ -98,13 +98,13 @@ $(document).ready(function(){initNavTree('examples.html',''); initResizable(); }
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This page contains multiple examples and their explanation, circuit schematic Those example are:</p><ul>
-<li><a class="el" href="examples.html#Example_HC_SR04">Example 1: HC-SR04</a></li>
-<li><a class="el" href="examples.html#Example_APA102">Example 2: APA102</a></li>
+<li><a class="el" href="examples.html#Example_RF24L01_HC_SR04">Example 1: RF24L01 with HC-SR04</a></li>
+<li><a class="el" href="examples.html#Example_RF24L01_APA102">Example 2: RF24L01 with APA102</a></li>
 </ul>
 <p><br  />
  </p>
-<h1><a class="anchor" id="Example_HC_SR04"></a>
-Example 1: HC-SR04</h1>
+<h1><a class="anchor" id="Example_RF24L01_HC_SR04"></a>
+Example 1: RF24L01 with HC-SR04</h1>
 <hr  />
 <p> This file is an example to which is used to Transmit and recieve the distance measured by a HC-SR04</p>
 <p>This example concists of 2 parts:</p><ul>
@@ -169,7 +169,7 @@ Transmit code example</h2>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="ttc" id="aclass_i_p_a_s_s_1_1_r_f24_l01_html"><div class="ttname"><a href="class_i_p_a_s_s_1_1_r_f24_l01.html">IPASS::RF24L01</a></div><div class="ttdoc">Class for the RF24L01.</div><div class="ttdef"><b>Definition:</b> RF24L01.hpp:36</div></div>
+<div class="ttc" id="aclass_i_p_a_s_s_1_1_r_f24_l01_html"><div class="ttname"><a href="class_i_p_a_s_s_1_1_r_f24_l01.html">IPASS::RF24L01</a></div><div class="ttdoc">Class for the RF24L01.</div><div class="ttdef"><b>Definition:</b> RF24L01.hpp:32</div></div>
 </div><!-- fragment --> <h2><a class="anchor" id="Example_HC_SR04_Recieve_code"></a>
 Recieve code example</h2>
 <div class="fragment"><div class="line"> </div>
@@ -215,7 +215,7 @@ Recieve code example</h2>
 <div class="line">    <span class="keywordflow">for</span> (;;) {</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">//check if packet is recieved</span></div>
-<div class="line">        <span class="keywordflow">if</span> (chip.packet_recieved()) {</div>
+<div class="line">        <span class="keywordflow">if</span> (chip.packet_received()) {</div>
 <div class="line"> </div>
 <div class="line">            <span class="comment">//read rx_data to data in;</span></div>
 <div class="line">            chip.read_rx(data_in);</div>
@@ -226,19 +226,17 @@ Recieve code example</h2>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="ttc" id="aclass_i_p_a_s_s_1_1_r_f24_l01_1_1_s_e_t_t_i_n_g_html_af0fe4430333fe4b84c00941b2a2f2606"><div class="ttname"><a href="class_i_p_a_s_s_1_1_r_f24_l01_1_1_s_e_t_t_i_n_g.html#af0fe4430333fe4b84c00941b2a2f2606">IPASS::RF24L01::SETTING::RF_DR</a></div><div class="ttdeci">static Setting RF_DR</div><div class="ttdoc">static Settings that contains the Register_name and the bitmask of the RF_DR-setting</div><div class="ttdef"><b>Definition:</b> RF24L01.hpp:585</div></div>
+<div class="ttc" id="aclass_i_p_a_s_s_1_1_r_f24_l01_1_1_s_e_t_t_i_n_g_html_af0fe4430333fe4b84c00941b2a2f2606"><div class="ttname"><a href="class_i_p_a_s_s_1_1_r_f24_l01_1_1_s_e_t_t_i_n_g.html#af0fe4430333fe4b84c00941b2a2f2606">IPASS::RF24L01::SETTING::RF_DR</a></div><div class="ttdeci">static Setting RF_DR</div><div class="ttdoc">static Settings that contains the Register_name and the bitmask of the RF_DR-setting</div><div class="ttdef"><b>Definition:</b> RF24L01.hpp:587</div></div>
 </div><!-- fragment --> <hr  />
-<h1><a class="anchor" id="Example_APA102"></a>
-Example 2: APA102</h1>
+<h1><a class="anchor" id="Example_RF24L01_APA102"></a>
+Example 2: RF24L01 with APA102</h1>
 <hr  />
 <p> This file is an example to which is used to Transmit and recieve RGB and brightness data from 4 Potentiometers</p>
 <p>This example concists of 2 parts:</p><ul>
 <li>The first part is the main_tx()-function is an example which: checks if one of the buttons is pressed<ol type="1">
-<li>if the first button connected to D52 is pressed: Measures the data from the potentiometers and sends it<ol type="a">
+<li>if the first button connected to D52 is pressed: Measures the data from the potentiometers and sends it</li>
 <li>if the second button connected to D11 is pressed: Send {0,0,0,0,0} to turn of the leds</li>
 <li>if the third button connected to D13 is pressed: Send {0,0,0,0,255} to turn on the random_colors function off the APA102-library which sends pseudo-random values to the apa102</li>
-</ol>
-</li>
 </ol>
 </li>
 <li>The second part is the main_rx()-function is an example which: Retrieves the data and sends it to the APA102 In the circuitschema the 3.3V-pin is displayed as a external powersource because of a mistake in the Arduino Due scheme in Fritzing</li>
@@ -363,7 +361,7 @@ Recieve code example</h2>
 <div class="line">    <span class="keywordflow">for</span> (;;) {</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">//check if packet is recieved</span></div>
-<div class="line">        <span class="keywordflow">if</span> (chip.packet_recieved()) {</div>
+<div class="line">        <span class="keywordflow">if</span> (chip.packet_received()) {</div>
 <div class="line">            led.write(1);</div>
 <div class="line">            <span class="comment">//read rx_data to data in;</span></div>
 <div class="line">            chip.read_rx(data_in);</div>
@@ -400,7 +398,7 @@ Recieve code example</h2>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jun 25 2021 18:38:22 for IPASS Stephan Zaaijer by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Wed Jun 30 2021 10:49:32 for IPASS Stephan Zaaijer by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
