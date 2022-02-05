@@ -14,8 +14,7 @@ jobs:
       - name: step 1 - Install doxygen
         run: sudo apt-get install doxygen
       - name: step 2 - Run doxygen
-        run: |
-          doxygen Doxyfiles/Doxyfile
+        run: doxygen Doxyfiles/Doxyfile
       - name: Commit files
         id: commit
         run: |
@@ -33,7 +32,7 @@ jobs:
         if: steps.commit.outputs.push == 'true'
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.ACCES_TOKEN_STEPHAN_ZAAIJER }}
+          github_token: ${{ secrets.GITHUB_TOKEN  }}
           branch: gh_pages
           force: true
 
